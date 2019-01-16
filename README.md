@@ -1,3 +1,3 @@
-# dfo_tool
+# dfo_table
 
-https://mwashbur.github.io/dfo_tool/
+https://mwashbur.github.io/dfo_table/
