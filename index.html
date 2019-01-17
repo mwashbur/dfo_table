@@ -3542,32 +3542,32 @@
               calculatedM = point2M - geoMileValue;
             }
           }
-            document.getElementById("dfo_div").innerHTML = calculatedM;
+          document.getElementById("dfo_div").innerHTML = Math.round(calculatedM*1000)/1000;
           // drawPoint(firstIntersectingPoint,Math.round(calculatedM*1000)/1000,"#FF0000");
         }
 
-        function drawPoint(thePoint,theLabel,theColor) {
-          var thePoint = new Point([thePoint.x,thePoint.y], new SpatialReference({wkid: 3857 }));
-          //Point style
-          var symbol = new SimpleMarkerSymbol();
-          symbol.style = esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE;
-          symbol.setSize(8);
-          symbol.setColor(new Color(theColor));
-          map.graphics.add(new Graphic(thePoint, symbol));
-
-          //Label
-          var label_symbol =  new TextSymbol(theLabel);
-          label_symbol.setColor(new Color(theColor));
-          label_symbol.setFont(new Font("12pt").setWeight(esri.symbol.Font.WEIGHT_BOLD));
-
-          var currentScale = map.getScale();
-          var labelOffset=Math.round(currentScale/350);
-
-          //Location for the label
-          var labelLocation = new Point([thePoint.x,thePoint.y+labelOffset], new SpatialReference({wkid: 3857 }));
-          map.graphics.add(new Graphic(labelLocation, label_symbol));
-        }
-
+        // function drawPoint(thePoint,theLabel,theColor) {
+        //   var thePoint = new Point([thePoint.x,thePoint.y], new SpatialReference({wkid: 3857 }));
+        //   //Point style
+        //   var symbol = new SimpleMarkerSymbol();
+        //   symbol.style = esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE;
+        //   symbol.setSize(8);
+        //   symbol.setColor(new Color(theColor));
+        //   map.graphics.add(new Graphic(thePoint, symbol));
+        //
+        //   //Label
+        //   var label_symbol =  new TextSymbol(theLabel);
+        //   label_symbol.setColor(new Color(theColor));
+        //   label_symbol.setFont(new Font("12pt").setWeight(esri.symbol.Font.WEIGHT_BOLD));
+        //
+        //   var currentScale = map.getScale();
+        //   var labelOffset=Math.round(currentScale/350);
+        //
+        //   //Location for the label
+        //   var labelLocation = new Point([thePoint.x,thePoint.y+labelOffset], new SpatialReference({wkid: 3857 }));
+        //   map.graphics.add(new Graphic(labelLocation, label_symbol));
+        // }
+        //
         function createTwoPointPolyline(point1,point2) {
             var newPolyline = new Polyline(new SpatialReference({wkid:3857}));
             newPolyline.type = "polyline";
