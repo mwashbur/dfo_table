@@ -892,7 +892,7 @@
 							tableText += "<tr><td>Roadbed Type</td><td>${RDBD_TYPE}</td></tr>";
 							tableText += "<tr><td>Name/Number</td><td>${MAP_LBL}</td></tr>";
 							tableText += "<tr><td>Begin DFO</td><td>${BEGIN_DFO}</td></tr>";
-                            tableText += "<tr><td>Current DFO</td><td id='dfo_div'></td></tr>";
+                            tableText += "<tr><td>Current DFO</td><td id='dfo_val'></td></tr>";
 							tableText += "<tr><td>End DFO</td><td>${END_DFO}</td></tr>";
 							tableText += "</table>";
 
@@ -3493,7 +3493,7 @@
           var coord3 = gidWithMeasuresGeom.features[0].geometry.paths[0][vertexIndex+1];
 
           if (coord1==undefined || coord2==undefined || coord3==undefined) {
-            document.getElementById("dfo_div").innerHTML = "Unable to calculate DFO";
+            document.getElementById("dfo_val").innerHTML = "Unable to calculate DFO";
           };
 
           // array of [x,y,m]; need to loop through this
@@ -3542,7 +3542,7 @@
               calculatedM = point2M - geoMileValue;
             }
           }
-          document.getElementById("dfo_div").innerHTML = Math.round(calculatedM*1000)/1000;
+          document.getElementById("dfo_val").innerHTML = Math.round(calculatedM*1000)/1000;
           // drawPoint(firstIntersectingPoint,Math.round(calculatedM*1000)/1000,"#FF0000");
         }
 
